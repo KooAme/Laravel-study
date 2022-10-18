@@ -1,8 +1,9 @@
 <?php
-
+// 기본적으로 실행되는 HTTP커널
+// 이 클래스는 미들웨어 설정만 가지고 있음 -> 실제베이스 클래스는 Illuminate\Foundation\Http\Kernel에 구현
 namespace App\Http;
 
-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Foundation\Http\Kernel as HttpKernel; //얘가 실제 베이스클래스
 
 class Kernel extends HttpKernel
 {

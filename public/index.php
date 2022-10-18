@@ -3,7 +3,7 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
-define('LARAVEL_START', microtime(true));
+define('LARAVEL_START', microtime(true));// 1.오토로더 로딩
 
 /*
 |--------------------------------------------------------------------------
@@ -44,12 +44,12 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__.'/../bootstrap/app.php'; // 2.프레임워크 실행
 
-$kernel = $app->make(Kernel::class);
+$kernel = $app->make(Kernel::class); // 3.애플리케이션 실행 & HTTP응답 송신
 
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();
 
-$kernel->terminate($request, $response);
+$kernel->terminate($request, $response); // 4.종료처리
