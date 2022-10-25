@@ -22,11 +22,13 @@ Route::get('/', function () {
 //     return view('home');
 // });
 
-Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'create'])
-->middleware('guest')->name('register');
+// Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'create'])
+// ->middleware('guest')->name('register');
 
-Route::post('register', [\App\Http\Controllers\RegisterController::class, 'store'])
-->middleware('guest');
+// Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'store'])
+// ->middleware('guest');
+
+Route::post('/register', [\App\Http\Controllers\UserController::class, 'register']);
 
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index'])
 ->middleware('guest')->name('login');
@@ -61,3 +63,6 @@ Route::get('task/alert', function(){
     ];
     return view('task.elart')->with('task', $taskNew);
 });
+
+Route::get('/user', [\App\Http\Controllers\UserControllers::class, 'index']);
+Route::post('user', [\App\Http\Controllers\UserControllers::class, 'store']);

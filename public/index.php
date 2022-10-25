@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Contracts\Http\Kernel;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; //사용자의 요청은 얘의 인스턴스로 얻음 handle메서드를 통해
 
 define('LARAVEL_START', microtime(true));// 1.오토로더 로딩
 
@@ -48,7 +48,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php'; // 2.프레임워크 실행
 
 $kernel = $app->make(Kernel::class); // 3.애플리케이션 실행 & HTTP응답 송신
 
-$response = $kernel->handle(
+$response = $kernel->handle( 
     $request = Request::capture()
 )->send();
 
