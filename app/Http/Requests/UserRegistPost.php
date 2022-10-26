@@ -25,7 +25,8 @@ class UserRegistPost extends FormRequest
     public function rules() : array //밸리데이션 규칙 설정
     {
         return [
-            //
+            'name' => ['required', 'max:20'],
+            'email' => ['required', 'email', 'max:255'],
         ];
     }
 }

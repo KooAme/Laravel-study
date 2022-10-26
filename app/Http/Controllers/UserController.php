@@ -46,8 +46,16 @@ class UserController extends Controller
         ]; //규칙을 배열로 지정하고 밸리데이션 설정
 
         //1. 밸리데이션 실행, 에러발생 시 직전 화면으로 돌아가기(redirect)
-        $this -> validate($request, $rules);
+        //$this -> validate($request, $rules);
         //밸리데이션 통과 후 실행할 처리
-        $name = $request->get('name');
+        //$name = $request->get('name');
+        //2. 밸리데이터 클래스를 사용한 밸리데이션 처리 방법
+        //모든 입력값을 얻어 $inputs에 저장
+        $inputs = $request->all();
+        //밸리데이터 클래스의 인스턴스 생성
+        $validator = Validator::make($inputs, $rules);
+        if($validator -> fails()){
+            //밸리데이션 에러 발생시 처리 내용
+        }
     }
 }
