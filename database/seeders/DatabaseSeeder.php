@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(AuthorsTableSeeder::class);
-        //publishers 테이블에 레코드 50건을 만든다
+        //publishers 테이블에 레코드 20건을 만든다
         \App\Models\Publisher::factory(20)->create();
         // \App\Models\User::factory(10)->create();
 
