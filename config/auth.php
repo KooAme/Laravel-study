@@ -41,6 +41,13 @@ return [
             'provider' => 'users',
         ],
     ],
+    'api' => [
+        'driver' => 'token',
+        'provider' => 'user_token',
+        'input_key' => 't',
+        'storage_key' => 'token',
+        'hash' => true,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +70,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'users' => [
+            'driver' => 'database',
+            'table' => 'users',
         ],
 
         // 'users' => [
